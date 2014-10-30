@@ -3,8 +3,8 @@ sensu-formula
 
 A saltstack formula to install and configure the open source monitoring framework, [Sensu](http://sensuapp.org/).
 
-    See the full `Salt Formulas installation and usage instructions
-    <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
+    See the full [Salt Formulas installation and usage instructions]
+    (http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html).
 
 Sensu can be configured/scaled with the individual states installed on multiple servers. All states are configured via the pillar file. Sane defaults are set in pillar_map.jinja and can be over-written in the pillar.
 
