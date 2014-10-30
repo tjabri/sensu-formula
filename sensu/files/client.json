@@ -1,0 +1,7 @@
+{
+  "client": {
+    "name": {{ grains['fqdn']|json }},
+    "address": {{ grains['ipv4'][0]|json }},
+    "subscriptions": [ "all" ]
+  }
+}

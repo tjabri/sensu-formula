@@ -1,0 +1,45 @@
+{% set sensu = salt['grains.filter_by']({
+    'default': {
+        'client': {
+            'embedded_ruby': False,
+            'nagios_plugins': False
+        },
+        'redis': {
+            'host': 'localhost',
+            'port': 6379
+        },
+        'api': {
+            'host': 'localhost',
+            'port': 4567,
+            'user': 'admin',
+            'password': ''
+        },
+        'rabbitmq': {
+            'host': 'localhost',
+            'port': 5671,
+            'vhost': '/sensu',
+            'user': 'sensu',
+            'password': ''
+        },
+        'ssl': {
+            'enable': False
+        },
+        'uchiwa': {
+            'user': '',
+            'password': '',
+            'port': 3000,
+            'stats': 10,
+            'refresh': 10000
+        },
+        'sites': {
+            'name': 'Sensu',
+            'host': '127.0.0.1',
+            'ssl': False,
+            'port': 4567,
+            'user': 'admin',
+            'password': '',
+            'path': '',
+            'timeout': 5000
+        }
+    },
+}, merge=salt['pillar.get']('sensu'), default='default') %}

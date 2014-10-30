@@ -1,0 +1,24 @@
+sensu:
+  client:
+    embedded_ruby: true
+    nagios_plugins: true
+  rabbitmq:
+    host: 10.0.0.1
+    user: sensu
+    password: secret
+  api:
+    password: secret
+  ssl:
+    enable: True
+    cert_pem: |
+      < PUT CERTIFICATE HERE IF USING SLL >
+    key_pem: |
+      < PUT PRIVATE KEY HERE IF USING SLL >
+  uchiwa:
+    sites:
+      site1:
+        user: bobby
+        password: secret
+      site2:
+        host: 1.2.3.4
+        password: secret
