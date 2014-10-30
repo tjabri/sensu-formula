@@ -28,9 +28,11 @@ base:
 
 Available states
 ================
-
-## Table Of Contents
 * [sensu](#sensu)
+* [sensu.server](#sensu-server)
+* [sensu.client](#sensu-client)
+* [sensu.api](#sensu-api)
+* [sensu.uchiwa](#sensu-uchiwa)
 
 ``sensu``
 ------------
