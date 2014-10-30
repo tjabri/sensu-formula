@@ -8,7 +8,9 @@ A saltstack formula to install and configure the open source monitoring framewor
 
 Sensu can be configured/scaled with the individual states installed on multiple servers. All states are configured via the pillar file. Sane defaults are set in pillar_map.jinja and can be over-written in the pillar.
 
-    This formula only manages Sensu!! You are responsible for installing/configuring RabbitMQ and Redis as appropriate.
+    This formula only manages Sensu!! 
+    You are responsible for installing/configuring 
+    RabbitMQ and Redis as appropriate.
 
 Example top.sls:
 ```
@@ -29,10 +31,10 @@ base:
 Available states
 ================
 * [sensu](#sensu)
-* [sensu.server](#sensu-server)
-* [sensu.client](#sensu-client)
-* [sensu.api](#sensu-api)
-* [sensu.uchiwa](#sensu-uchiwa)
+* [sensu.server](#sensuserver)
+* [sensu.client](#sensuclient)
+* [sensu.api](#sensuapi)
+* [sensu.uchiwa](#sensuuchiwa)
 
 ``sensu``
 ------------
