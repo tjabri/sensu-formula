@@ -56,7 +56,7 @@ sensu:
 
 If you use SSL, you must enable it and provide the certs. See the [sensu documentation.](http://sensuapp.org/docs/latest/certificates)
 
-Custom check definitions/extentions/mutators/handlers/plugins can be deployed to all masters by placing the scripts into the corresponding directory in ./sensu/files/.
+Custom check definitions/extentions/mutators/handlers/plugins can be deployed to all Sensu servers by placing the scripts into the corresponding directory in ./sensu/files/.
 
 The included check-procs.rb comes from the [sensu-community-plugins](https://github.com/sensu/sensu-community-plugins) as an example only. There is no guarantee that it up-to-date and it should not be used.
 
