@@ -40,9 +40,14 @@ sensu-client:
   file.replace:
     - pattern: 'EMBEDDED_RUBY=false'
     - repl: 'EMBEDDED_RUBY=true'
+    - watch_in:
+      - service: sensu-client
 {% endif %}
 
 {% if sensu.client.nagios_plugins %}
 {{ services.nagios_plugins }}:
-  pkg.installed
+  pkg:
+    - installed
+    - require_in:
+      - service: sensu-client
 {% endif %}
