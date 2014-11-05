@@ -1,4 +1,8 @@
 sensu:
+  server:
+    install_gems:
+      - mail
+      - timeout
   client:
     embedded_ruby: true
     nagios_plugins: true
