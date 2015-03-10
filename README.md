@@ -104,6 +104,15 @@ extend:
       - source: salt://your/file/here
 ```
 
+If you are adding plugins/checks which have additional gem dependencies. You can add them to the pillar data and they will be installed on your Sensu clients.
+```
+sensu:
+  client:
+    install_gems:
+      - libxml-xmlrpc
+```
+
+
 ``sensu.api``
 ------------
 

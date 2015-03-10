@@ -51,3 +51,18 @@ sensu-client:
     - require_in:
       - service: sensu-client
 {% endif %}
+
+{% if sensu.client.embedded_ruby %}
+{% set gem_path = '/opt/sensu/embedded/bin/gem' %}
+{% else %}
+{% set gem_path = 'gem' %}
+{% endif %}
+
+{% set gem_list = salt['pillar.get']('sensu:client:install_gems', []) %}
+{% for gem in gem_list %}
+client_install_{{ gem }}:
+  cmd.run:
+    - name: {{ gem_path }} install {{ gem }} --no-ri --no-rdoc
+    - unless: {{ gem_path }} list | grep -q {{ gem }}
+{% endfor %}
+
