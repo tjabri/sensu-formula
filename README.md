@@ -105,11 +105,12 @@ sensu:
     nagios_plugins: true
 ```
 
-To subscribe your clients to the appropriate checks, you can update the `sensu` pillar with the required subscriptions.  You can also override the client address to another interface.
+To subscribe your clients to the appropriate checks, you can update the `sensu` pillar with the required subscriptions.  You can also override the client address to another interface or change the name of the client
 
 ```
 sensu:
   client:
+    name: {{ grains['sensu_id'] }}
     address: {{ grains['ip4_interfaces']['eth0'][0] }}
     subscriptions: ['linux', 'compute']
 ```

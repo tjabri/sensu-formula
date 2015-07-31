@@ -1,7 +1,7 @@
 {% from "sensu/pillar_map.jinja" import sensu with context %}
 {
   "client": {
-    "name": {{ grains['fqdn']|json }},
+    "name": {{ sensu.client.name|json }},
     "address": {{ sensu.client.address|json }},
     "subscriptions": {{ sensu.client.subscriptions|json }}
   }
