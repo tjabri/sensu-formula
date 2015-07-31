@@ -2,7 +2,7 @@
 {
   "client": {
     "name": {{ grains['fqdn']|json }},
-    "address": {{ grains['ipv4'][0]|json }},
+    "address": {{ sensu.client.address|json }},
     "subscriptions": {{ sensu.client.subscriptions|json }}
   }
 }

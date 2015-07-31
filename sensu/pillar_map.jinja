@@ -3,6 +3,7 @@
         'client': {
             'embedded_ruby': False,
             'nagios_plugins': False,
+            'address': salt['grains.get']('ipv4')[0],
             'subscriptions': ['all'],
         },
         'redis': {
