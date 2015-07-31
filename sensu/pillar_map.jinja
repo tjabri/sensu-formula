@@ -6,6 +6,7 @@
             'name': salt['grains.get']('fqdn'),
             'address': salt['grains.get']('ipv4')[0],
             'subscriptions': ['all'],
+            'safe_mode': False
         },
         'redis': {
             'host': 'localhost',
