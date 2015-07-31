@@ -105,16 +105,12 @@ sensu:
     nagios_plugins: true
 ```
 
-To subscribe your clients to the appropriate checks, extend the sensu.client state and override the /etc/sensu/conf.d/client.json file block. You must provide your own method, I am currently using custom set grains associated to the servers's role.
+To subscribe your clients to the appropriate checks, you can update the `sensu` pillar with the required subscriptions.
 
 ```
-include:
-  - sensu.client
-
-extend:
-  /etc/sensu/conf.d/client.json:
-    file.managed:
-      - source: salt://your/file/here
+sensu:
+  client:
+    subscriptions: ['linux', 'compute']
 ```
 
 ``sensu.api``
