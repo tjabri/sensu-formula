@@ -1,3 +1,5 @@
+{% from "sensu/pillar_map.jinja" import sensu with context %}
+{% from "sensu/configfile_map.jinja" import files with context %}
 include:
   - sensu
 
@@ -5,9 +7,12 @@ include:
   file.managed:
     - source: salt://sensu/files/rabbitmq.json
     - template: jinja
-    - user: root
-    - group: root
+    - user: {{files.files.user}}
+    - group: {{files.files.group}}
+    - makedirs: True
+    {% if grains['os_family'] != 'Windows' %}
     - mode: 644
+    {% endif %}
 
 {%- if salt['pillar.get']('sensu:ssl:enable', false) %}
 /etc/sensu/ssl:
