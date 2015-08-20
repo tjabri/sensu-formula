@@ -20,6 +20,8 @@ include:
       - pkg: sensu
     - require_in:
       - service: sensu-server
+    - watch_in:
+      - service: sensu-server
 
 /etc/sensu/extensions:
   file.recurse:
@@ -68,5 +70,3 @@ sensu-server:
     - require:
       - file: /etc/sensu/conf.d/redis.json
       - file: /etc/sensu/conf.d/rabbitmq.json
-    - watch:
-      - file: /etc/sensu/conf.d/*
