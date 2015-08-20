@@ -55,7 +55,7 @@ include:
 server_install_{{ gem }}:
   cmd.run:
     - name: /opt/sensu/embedded/bin/gem install {{ gem }} --no-ri --no-rdoc
-    - unless: /opt/sensu/embedded/bin/gem list | grep -q {{ gem }}
+    - unless: /opt/sensu/embedded/bin/gem list | grep -qE "^{{ gem }}\s+"
 {% endfor %}
 
 sensu-server:
