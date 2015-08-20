@@ -18,8 +18,6 @@ include:
     - template: jinja
     - require:
       - pkg: sensu
-    - require_in:
-      - service: sensu-server
     - watch_in:
       - service: sensu-server
 
@@ -29,8 +27,6 @@ include:
     - file_mode: 555
     - require:
       - pkg: sensu
-    - require_in:
-      - service: sensu-server
     - watch_in:
       - service: sensu-server
    
@@ -40,8 +36,6 @@ include:
     - file_mode: 555
     - require:
       - pkg: sensu
-    - require_in:
-      - service: sensu-server
     - watch_in:
       - service: sensu-server
 
