@@ -7,6 +7,7 @@ python-apt:
 {% endif %}
 
 sensu:
+  {% if grains['os_family'] != 'Windows' %}
   pkgrepo.managed:
     - humanname: Sensu Repository
     {% if grains['os_family'] == 'Debian' %}
@@ -18,7 +19,10 @@ sensu:
     - gpgcheck: 0
     - enabled: 1
     {% endif %}
+  {% endif %}
   pkg:
     - installed
+  {% if grains['os_family'] != 'Windows' %}
     - require:
       - pkgrepo: sensu
+  {% endif %}

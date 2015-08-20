@@ -1,24 +1,44 @@
 {% from "sensu/pillar_map.jinja" import sensu with context %}
 {% from "sensu/service_map.jinja" import services with context %}
+{% from "sensu/configfile_map.jinja" import files with context %}
 
 include:
   - sensu
   - sensu.rabbitmq_conf
 
+{% if grains['os_family'] == 'Windows' %}
+/opt/sensu/bin/sensu-client.xml:
+  file.managed:
+    - source: salt://sensu/files/windows/sensu-client.xml
+    - template: jinja
+    - require:
+      - pkg: sensu
+sensu_install_dotnet35:
+  cmd.run:
+    - name: 'powershell.exe Install-WindowsFeature Net-Framework-Core'
+sensu_enable_windows_service:
+  cmd.run:
+    - name: 'sc create sensu-client start= delayed-auto binPath= c:\opt\sensu\bin\sensu-client.exe DisplayName= "Sensu Client"'
+{% endif %}
 /etc/sensu/conf.d/client.json:
   file.managed:
     - source: salt://sensu/files/client.json
     - template: jinja
-    - user: root
-    - group: root
+    - user: {{files.files.user}}
+    - group: {{files.files.group}}
+    {% if grains['os_family'] != 'Windows' %}
     - mode: 644
+    {% endif %}
+    - makedirs: True
     - require:
       - pkg: sensu
 
 /etc/sensu/plugins:
   file.recurse:
     - source: salt://sensu/files/plugins
+    {% if grains['os_family'] != 'Windows' %}
     - file_mode: 555
+    {% endif %}
     - require:
       - pkg: sensu
     - require_in:
@@ -35,7 +55,7 @@ sensu-client:
     - watch:
       - file: /etc/sensu/conf.d/*
 
-{% if sensu.client.embedded_ruby %}
+{% if sensu.client.embedded_ruby and grains['os_family'] != 'Windows' %}
 /etc/default/sensu:
   file.replace:
     - pattern: 'EMBEDDED_RUBY=false'
