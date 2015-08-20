@@ -18,7 +18,7 @@ include:
     - template: jinja
     - require:
       - pkg: sensu
-    - require_in:
+    - watch_in:
       - service: sensu-server
 
 /etc/sensu/extensions:
@@ -27,8 +27,6 @@ include:
     - file_mode: 555
     - require:
       - pkg: sensu
-    - require_in:
-      - service: sensu-server
     - watch_in:
       - service: sensu-server
    
@@ -38,8 +36,6 @@ include:
     - file_mode: 555
     - require:
       - pkg: sensu
-    - require_in:
-      - service: sensu-server
     - watch_in:
       - service: sensu-server
 
@@ -68,5 +64,3 @@ sensu-server:
     - require:
       - file: /etc/sensu/conf.d/redis.json
       - file: /etc/sensu/conf.d/rabbitmq.json
-    - watch:
-      - file: /etc/sensu/conf.d/*
