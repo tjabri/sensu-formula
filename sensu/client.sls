@@ -19,6 +19,7 @@ sensu_install_dotnet35:
 sensu_enable_windows_service:
   cmd.run:
     - name: 'sc create sensu-client start= delayed-auto binPath= c:\opt\sensu\bin\sensu-client.exe DisplayName= "Sensu Client"'
+    - unless: 'sc query sensu-client'
 {% endif %}
 /etc/sensu/conf.d/client.json:
   file.managed:
