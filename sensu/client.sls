@@ -15,7 +15,7 @@ include:
       - pkg: sensu
 sensu_install_dotnet35:
   cmd.run:
-    - name: 'powershell.exe "Import-Module ServerManager;Add-WindowsFeature Net-Framework-Core'
+    - name: 'powershell.exe "Import-Module ServerManager;Add-WindowsFeature Net-Framework-Core"'
 sensu_enable_windows_service:
   cmd.run:
     - name: 'sc create sensu-client start= delayed-auto binPath= c:\opt\sensu\bin\sensu-client.exe DisplayName= "Sensu Client"'
