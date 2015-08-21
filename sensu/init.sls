@@ -18,11 +18,9 @@ sensu:
     - baseurl: http://repos.sensuapp.org/yum/el/$releasever/$basearch/
     - gpgcheck: 0
     - enabled: 1
+    - require_in:
+      - pkg: sensu
     {% endif %}
   {% endif %}
   pkg:
     - installed
-  {% if grains['os_family'] != 'Windows' %}
-    - require:
-      - pkgrepo: sensu
-  {% endif %}

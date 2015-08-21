@@ -11,6 +11,10 @@ Sensu can be configured/scaled with the individual states installed on multiple 
 >Note:
 This formula only manages Sensu!! You are responsible for installing/configuring RabbitMQ and Redis as appropriate.
 
+>Compatibility:
+Sensu Client should be working on Ubuntu, CentOS and Windows.
+Sensu Server, API and Uchiwa should be working on Ubuntu and CentOS.
+
 Example top.sls:
 ```
 base:
