@@ -84,6 +84,6 @@ sensu-client:
 client_install_{{ gem }}:
   cmd.run:
     - name: {{ gem_path }} install {{ gem }} --no-ri --no-rdoc
-    - unless: {{ gem_path }} list | grep -q {{ gem }}
+    - unless: {{ gem_path }} list | grep -qE "^{{ gem }}\s+"
 {% endfor %}
 
