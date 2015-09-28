@@ -1,16 +1,21 @@
+{% from "sensu/pillar_map.jinja" import sensu with context -%}
+
 include:
   - sensu
   - sensu.rabbitmq_conf
 
 /etc/sensu/conf.d/redis.json:
-  file.managed:
-    - source: salt://sensu/files/redis.json
-    - template: jinja
+  file.serialize:
+    - formatter: json
     - user: root
     - group: root
     - mode: 644
     - require:
       - pkg: sensu
+    - dataset:
+        redis:
+          host: {{ sensu.redis.host }}
+          port: {{ sensu.redis.port }}
 
 /etc/sensu/conf.d:
   file.recurse:
