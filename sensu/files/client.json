@@ -1,9 +1,0 @@
-{% from "sensu/pillar_map.jinja" import sensu with context %}
-{
-  "client": {
-    "name": {{ sensu.client.name|json }},
-    "address": {{ sensu.client.address|json }},
-    "subscriptions": {{ sensu.client.subscriptions|json }},
-    "safe_mode": {{ sensu.client.safe_mode|json }}
-  }
-}

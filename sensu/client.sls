@@ -22,15 +22,20 @@ sensu_enable_windows_service:
     - unless: 'sc query sensu-client'
 {% endif %}
 /etc/sensu/conf.d/client.json:
-  file.managed:
-    - source: salt://sensu/files/client.json
-    - template: jinja
+  file.serialize:
+    - formatter: json
     - user: {{files.files.user}}
     - group: {{files.files.group}}
     {% if grains['os_family'] != 'Windows' %}
     - mode: 644
     {% endif %}
     - makedirs: True
+    - dataset:
+        client:
+          name: {{ sensu.client.name }}
+          address: {{ sensu.client.address }}
+          subscriptions: {{ sensu.client.subscriptions }}
+          safe_mode: {{ sensu.client.safe_mode }}
     - require:
       - pkg: sensu
 
