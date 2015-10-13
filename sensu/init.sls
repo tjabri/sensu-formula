@@ -18,9 +18,9 @@ sensu:
     - baseurl: http://repos.sensuapp.org/yum/el/$releasever/$basearch/
     - gpgcheck: 0
     - enabled: 1
+    {% endif %}
     - require_in:
       - pkg: sensu
-    {% endif %}
   {% endif %}
   pkg:
     - installed
