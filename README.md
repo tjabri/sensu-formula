@@ -37,7 +37,7 @@ Backward incompatible changes
 2015-04-15
 ----------
 
-The default ``sensu:rabbitmq:port`` value is now 5672 (which is the default port of RabbitMQ) instead of 5671.
+The default ``sensu:rabbitmq:port`` value is now 5672 (which is the default port of RabbitMQ) instead of 5671. Port 5671 was used to support SSL/TLS as you cannot configure TLS on port 5672.
 
 * If you happened to have used the default previous value of 5671, you should now set it in your pillar file or change your RabbitMQ configuration.
 * If you overrode the previous default value of 5671 with 5672, you can now safely remove it.
