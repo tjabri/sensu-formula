@@ -83,6 +83,7 @@ sensu:
   redis:
     host: HOSTNAME
     port: PORT
+    password: PASSWORD # Optional
 ```
 
 If you are adding handlers which have additional gem dependencies, i.e the [mailer](https://github.com/sensu/sensu-community-plugins/blob/master/handlers/notification/mailer.rb) handler. You can add them to the pillar data and they will be installed on your Sensu servers.

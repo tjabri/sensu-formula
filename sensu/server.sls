@@ -15,6 +15,7 @@ include:
     - dataset:
         redis:
           host: {{ sensu.redis.host }}
+          {% if sensu.redis.password is defined and sensu.redis.password is not none %}password: {{ sensu.redis.password }}{% endif %}
           port: {{ sensu.redis.port }}
 
 /etc/sensu/conf.d:
