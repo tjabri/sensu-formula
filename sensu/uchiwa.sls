@@ -22,7 +22,7 @@ uchiwa:
     - dataset:
         sensu:
         {%- for site, value in sites %}
-          - name: {{ site}},
+          - name: {{ site }}
             host: {{ get(value, 'host') }}
             ssl: {{ get(value, 'ssl') }}
             port: {{ get(value, 'port') }}
