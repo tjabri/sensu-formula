@@ -2,6 +2,7 @@
 
 include:
   - sensu
+  - sensu.api_conf # Some handlers need to access the API server
   - sensu.rabbitmq_conf
   - sensu.redis_conf
 
