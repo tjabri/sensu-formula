@@ -46,10 +46,12 @@ include:
 
 {% set gem_list = salt['pillar.get']('sensu:server:install_gems', []) %}
 {% for gem in gem_list %}
-server_install_{{ gem }}:
-  cmd.run:
-    - name: /opt/sensu/embedded/bin/gem install {{ gem }} --no-ri --no-rdoc
-    - unless: /opt/sensu/embedded/bin/gem list | grep -qE "^{{ gem }}\s+"
+install_{{ gem }}:
+  gem.installed:
+    - name: {{ gem }}
+    - gem_bin: /opt/sensu/embedded/bin/gem
+    - rdoc: False
+    - ri: False
 {% endfor %}
 
 sensu-server:
