@@ -61,11 +61,16 @@ sensu-client:
     - watch:
       - file: /etc/sensu/conf.d/*
 
-{% if sensu.client.embedded_ruby and grains['os_family'] != 'Windows' %}
+{% if grains['os_family'] != 'Windows' %}
 /etc/default/sensu:
   file.replace:
+{%- if sensu.client.embedded_ruby %}
     - pattern: 'EMBEDDED_RUBY=false'
     - repl: 'EMBEDDED_RUBY=true'
+{%- else %}
+    - pattern: 'EMBEDDED_RUBY=true'
+    - repl: 'EMBEDDED_RUBY=false'
+{%- endif %}
     - watch_in:
       - service: sensu-client
 {% endif %}
