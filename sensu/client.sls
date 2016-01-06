@@ -31,7 +31,7 @@ sensu_enable_windows_service:
     {% endif %}
     - makedirs: True
     - dataset:
-        client: 
+        client:
           name: {{ sensu.client.name }}
           address: {{ sensu.client.address }}
           subscriptions: {{ sensu.client.subscriptions }}
