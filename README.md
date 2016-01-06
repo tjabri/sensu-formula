@@ -120,6 +120,17 @@ sensu:
     subscriptions: ['linux', 'compute']
 ```
 
+If you would like to use [command tokens](https://sensuapp.org/docs/latest/checks#example-check-command-tokens) in your checks you can add a section under client as shown here:
+
+```
+sensu:
+  client:
+    command_tokens:
+      disk:
+        warning: 97
+        critical: 99
+```
+
 If you are adding plugins/checks which have additional gem dependencies. You can add them to the pillar data and they will be installed on your Sensu clients.
 ```
 sensu:
