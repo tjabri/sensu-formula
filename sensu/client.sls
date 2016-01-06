@@ -36,6 +36,9 @@ sensu_enable_windows_service:
           address: {{ sensu.client.address }}
           subscriptions: {{ sensu.client.subscriptions }}
           safe_mode: {{ sensu.client.safe_mode }}
+{% if sensu.client.get("command_tokens") %}
+          command_tokens: {{ sensu.client.command_tokens }}
+{% endif %}
     - require:
       - pkg: sensu
 
