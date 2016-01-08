@@ -145,9 +145,33 @@ sensu:
 
 Configures sensu-api and starts the service.
 
+
+
 ``sensu.uchiwa``
 ------------
+>Note: The Uchiwa pillar structure has changed! If you have previously used this state and are potentially upgrading, please take a minute to review.
 
-Configures [uchiwa](http://sensuapp.org/docs/latest/dashboards_uchiwa) and starts the service.
+Configures [uchiwa](http://docs.uchiwa.io/en/latest/) and starts the service. The pillar defaults are located in the ```pillar_map.jinja```.
 
-Uchiwa can manage multiple Sensu clusters. You can manage them by creating more sites in the pillar. Override the neccesary default values.
+The state now supports [multiple users with simple authentication](http://docs.uchiwa.io/en/latest/configuration/uchiwa/#multiple-users-with-simple-authentication). If you are upgrading from a previous version of this state, you will need make some minor modifications to your pillar.
+
+**Site and user definitions**
+``` yaml
+# new style users and sites
+sensu:
+    uchiwa:
+        users:
+            - username: bobby
+              password: secret
+              role: { readonly: False } 
+    sites:
+        - name: 'Site 1'
+          host: '1.1.1.1'
+          user: 'bobby'
+          password: secret
+        - name: 'Site 2'
+          host: localhost
+          user: nicky
+          password: secret
+          ssl: True
+```
