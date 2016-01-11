@@ -162,10 +162,10 @@ sensu:
         - name: 'Site 1'
           host: '1.1.1.1'
           user: 'bobby'
-          password: secret
+          pass: secret
         - name: 'Site 2'
           host: localhost
           user: nicky
-          password: secret
+          pass: secret
           ssl: True
 ```
