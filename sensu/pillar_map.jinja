@@ -60,6 +60,13 @@
                 'password': '',
                 'timeout': 5
             }
-        ]
+        ],
+        'paths': {
+            'plugins'       : 'sensu/files/plugins',
+            'conf_d'        : 'sensu/files/conf.d',
+            'extensions'    : 'sensu/files/extensions',
+            'mutators'      : 'sensu/files/mutators',
+            'handlers'      : 'sensu/files/handlers',
+        },
     },
 }, merge=salt['pillar.get']('sensu'), default='default') %}

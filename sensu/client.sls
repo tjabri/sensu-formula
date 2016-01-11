@@ -44,7 +44,7 @@ sensu_enable_windows_service:
 
 /etc/sensu/plugins:
   file.recurse:
-    - source: salt://sensu/files/plugins
+    - source: salt://{{ sensu.paths.plugins }}
     {% if grains['os_family'] != 'Windows' %}
     - file_mode: 555
     {% endif %}
