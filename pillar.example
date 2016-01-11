@@ -36,3 +36,7 @@ sensu:
       user: nicky
       password: secret
       ssl: True
+  # Configurable path support.
+  paths:
+    plugins: monitoring/checks
+    handlers: monitoring/handlers

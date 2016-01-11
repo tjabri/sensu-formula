@@ -8,7 +8,7 @@ include:
 
 /etc/sensu/conf.d:
   file.recurse:
-    - source: salt://sensu/files/conf.d
+    - source: salt://{{ sensu.paths.conf_d }}
     - template: jinja
     - require:
       - pkg: sensu
@@ -17,7 +17,7 @@ include:
 
 /etc/sensu/extensions:
   file.recurse:
-    - source: salt://sensu/files/extensions
+    - source: salt://{{ sensu.paths.extensions }}
     - file_mode: 555
     - require:
       - pkg: sensu
@@ -26,7 +26,7 @@ include:
    
 /etc/sensu/mutators:
   file.recurse:
-    - source: salt://sensu/files/mutators
+    - source: salt://{{ sensu.paths.mutators }}
     - file_mode: 555
     - require:
       - pkg: sensu
@@ -35,7 +35,7 @@ include:
 
 /etc/sensu/handlers:
   file.recurse:
-    - source: salt://sensu/files/handlers
+    - source: salt://{{ sensu.paths.handlers }}
     - file_mode: 555
     - require:
       - pkg: sensu
