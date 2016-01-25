@@ -67,6 +67,8 @@
             'extensions'    : 'sensu/files/extensions',
             'mutators'      : 'sensu/files/mutators',
             'handlers'      : 'sensu/files/handlers',
+            'checks_file'   : '/etc/sensu/conf.d/checks.json',
+            'handlers_file' : '/etc/sensu/conf.d/handlers.json',
         },
     },
 }, merge=salt['pillar.get']('sensu'), default='default') %}

@@ -40,3 +40,20 @@ sensu:
   paths:
     plugins: monitoring/checks
     handlers: monitoring/handlers
+  # Optional: Checks within Pillar
+  checks:
+    handlers:
+      - pagerduty
+    command: "/etc/sensu/plugins/check-http.rb -h localhost -p 443 -s -e 30"
+    interval: 300
+    occurences: 2
+    subscribers:
+      - ssl_server
+  # Optional: Pillarized Handler files
+  handlers:
+    handlers:
+      pagerduty:
+        type: pipe
+        command: /etc/sensu/handlers/pagerduty.rb
+    pagerduty:
+      api_key: "encrypted or secure apikey"
