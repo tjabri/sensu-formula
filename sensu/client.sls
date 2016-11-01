@@ -46,6 +46,11 @@ sensu_enable_windows_service:
           {% if sensu.client.get("redact") %}
           redact: {{ sensu.client.redact }}
           {% endif %}
+          {% if sensu.client.get("additional") %}
+          {% for key,value in sensu.client.additional.iteritems() %}
+          {{ key }}: {{ value }}
+          {% endfor %}
+          {% endif %}          
     - require:
       - pkg: sensu
 
