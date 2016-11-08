@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "plex_buffer_size": {
+      "command": "check-plex.rb --buffer-size-above-warn 3000",
+      "subscribers": [
+        "plex"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "publish": true,
+      "interval": 10,
+      "pager_team": "plex",
+      "occurrences": 4
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "hkg_pct_nodes_unavailable": {
+      "command": "check-data.rb --age 120 -s https://graphite.mediamath.com:443 -t 'timeShift(offset(scale(asPercent(sumSeries(infra.plex.pops.hkg.*.HealthHTTP200), sumSeries(infra.plex.pops.hkg.*.HealthHTTP*)), -1), 100), \"1min\")' -u gautomation -P /etc/sensu/.gpass -w 20 -c 30",
+      "handlers": [
+        "pager_team"
+      ],
+      "standalone": true,
+      "interval": 60,
+      "occurrences": 2,
+      "pager_team": "plex"
+    }
+  }
+}

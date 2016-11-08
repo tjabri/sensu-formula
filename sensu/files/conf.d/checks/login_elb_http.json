@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "login_elb_http": {
+      "command": "check-http.rb --timeout 40 --response-bytes 500 -k --url https://login-elb.aws.infra.mediamath.com/v1.0/healthcheck",
+      "subscribers": [
+        "roundrobin:login_monitor"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "occurrences": 2,
+      "pager_team": "login",
+      "source": "login"
+    }
+  }
+}

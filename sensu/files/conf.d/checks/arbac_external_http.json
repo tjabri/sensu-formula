@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "arbac_external_http": {
+      "command": "check-http.rb --timeout 40 --response-bytes 500 --url https://api-origin.mediamath.com/arbac/healthcheck",
+      "subscribers": [
+        "roundrobin:arbac_monitor"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "occurrences": 2,
+      "pager_team": "arbac",
+      "source": "arbac"
+    }
+  }
+}
