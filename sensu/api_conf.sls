@@ -17,4 +17,5 @@ include:
           {% if sensu.api.password %}password: {{ sensu.api.password }}{% endif %}
           port: {{ sensu.api.port }}
           {% if sensu.api.user %}user: {{ sensu.api.user }}{% endif %}
+          {% if sensu.api.bind %}bind: {{ sensu.api.bind }}{% endif %}
 
