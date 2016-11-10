@@ -1,0 +1,10 @@
+{
+  "handlers": {
+    "plex_informational": {
+      "type": "set",
+      "handlers": [
+        "pager_team_hipchat"
+      ]
+    }
+  }
+}

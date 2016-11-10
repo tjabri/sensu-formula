@@ -1,0 +1,12 @@
+{
+  "handlers": {
+    "dev-graphite-line-tcp": {
+      "mutator": "only_check_output",
+      "type": "tcp",
+      "socket": {
+        "host": "dev-stats.aws.infra.mediamath.com",
+        "port": 2003
+      }
+    }
+  }
+}

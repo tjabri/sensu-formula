@@ -1,0 +1,11 @@
+{
+  "handlers": {
+    "entitlements": {
+      "type": "set",
+      "handlers": [
+        "pager_team_hipchat",
+        "pagerduty"
+      ]
+    }
+  }
+}

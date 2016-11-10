@@ -1,0 +1,7 @@
+{
+  "mutators": {
+    "pager_team": {
+      "command": "/etc/sensu/mutators/pager_team.rb"
+    }
+  }
+}
