@@ -16,5 +16,5 @@ include:
           host: {{ sensu.api.host }}
           {% if sensu.api.password %}password: {{ sensu.api.password }}{% endif %}
           port: {{ sensu.api.port }}
-          user: {{ sensu.api.user }}
+          {% if sensu.api.user %}user: {{ sensu.api.user }}{% endif %}
 
