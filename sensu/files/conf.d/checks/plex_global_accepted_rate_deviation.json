@@ -1,7 +1,7 @@
 {
   "checks": {
     "plex_global_accepted_rate_deviation": {
-      "command": "check-data.rb --age 120 -s https://graphite.mediamath.com:443 -t 'transformNull(removeBelowValue(movingAverage(absolute(holtWintersAberration(sumSeries(keepLastValue(infra.plex.pops.{ewr,ord,pao,hkg}.*.MessagesPushedIntoBuffer.rate, 100)), 5)), 10), 5000), 0)' -u gautomation -P /etc/sensu/.gpass -w 6000",
+      "command": "check-data.rb --age 280 -s https://graphite.mediamath.com:443 -t 'transformNull(removeBelowValue(movingAverage(absolute(holtWintersAberration(sumSeries(keepLastValue(infra.plex.pops.{ewr,ord,pao,hkg}.*.MessagesPushedIntoBuffer.rate, 100)), 5)), 10), 5000), 0)' -u gautomation -P /etc/sensu/.gpass -w 6000",
       "handlers": [
         "pager_team"
       ],
