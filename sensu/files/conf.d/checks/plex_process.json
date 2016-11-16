@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "plex_process": {
+      "command": "check-procs.rb -p plexd -W 1",
+      "subscribers": [
+        "plex"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "plex"
+    }
+  }
+}

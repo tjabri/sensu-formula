@@ -1,0 +1,10 @@
+{
+  "handlers": {
+    "changes": {
+      "type": "set",
+      "handlers": [
+        "pager_team_hipchat"
+      ]
+    }
+  }
+}

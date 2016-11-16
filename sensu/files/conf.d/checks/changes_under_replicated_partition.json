@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "changes_under_replicated_partition": {
+      "command": "check-data.rb -a 90 -s https://graphite.mediamath.com:443 -t 'changed(infra.changes.cluster.*.*.under_replicated_partitions.Value)' -u gautomation -P /etc/sensu/.gpass -w 1",
+      "handlers": [
+        "pager_team"
+      ],
+      "standalone": true,
+      "interval": 60,
+      "pager_team": "changes"
+    }
+  }
+}

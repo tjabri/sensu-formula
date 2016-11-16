@@ -1,0 +1,10 @@
+{
+  "handlers": {
+    "pager_team_hipchat": {
+      "type": "pipe",
+      "command": "pager_team_hipchat.rb",
+      "timeout": 10,
+      "mutator": "pager_team"
+    }
+  }
+}

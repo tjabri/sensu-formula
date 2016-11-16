@@ -1,0 +1,12 @@
+{
+  "handlers": {
+    "pagerduty": {
+      "type": "pipe",
+      "command": "handler-pagerduty.rb /etc/sensu/conf.d/pagerduty.json",
+      "severities": [
+        "ok",
+        "critical"
+      ]
+    }
+  }
+}

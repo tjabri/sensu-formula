@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "monplex_process": {
+      "command": "check-procs.rb -p monplex -C 1",
+      "subscribers": [
+        "monplex"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "plex"
+    }
+  }
+}

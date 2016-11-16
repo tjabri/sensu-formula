@@ -1,0 +1,11 @@
+{
+  "handlers": {
+    "janus": {
+      "type": "set",
+      "handlers": [
+        "pager_team_hipchat",
+        "pagerduty"
+      ]
+    }
+  }
+}

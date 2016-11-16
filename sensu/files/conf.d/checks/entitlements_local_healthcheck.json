@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "entitlements_local_healthcheck": {
+      "command": "check-http.rb --timeout 30 --response-bytes 500 -k --url https://localhost/healthcheck",
+      "subscribers": [
+        "entitlements"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 15,
+      "pager_team": "entitlements",
+      "occurrences": 2
+    }
+  }
+}

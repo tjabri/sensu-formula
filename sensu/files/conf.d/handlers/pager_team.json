@@ -1,0 +1,14 @@
+{
+  "handlers": {
+    "pager_team": {
+      "type": "set",
+      "handlers": [
+        "plex",
+        "plex_informational",
+        "janus",
+        "changes"
+      ],
+      "mutator": "pager_team"
+    }
+  }
+}

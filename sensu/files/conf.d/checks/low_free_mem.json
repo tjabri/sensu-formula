@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "low_free_mem": {
+      "command": "check-memory-percent.rb -w :::mem.warn|90::: -c :::mem.critical|95:::",
+      "subscribers": [
+        "all"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 60
+    }
+  }
+}

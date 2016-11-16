@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "changes_kafka_low_diskspace": {
+      "command": "check-data.rb -a 120 -b -s https://graphite.mediamath.com:443 -t 'infra.changes.cluster.*.kafk*.diskspace.*.byte_percentfree' -u gautomation -P /etc/sensu/.gpass -w 30 -c 25",
+      "handlers": [
+        "pager_team"
+      ],
+      "standalone": true,
+      "interval": 60,
+      "pager_team": "changes"
+    }
+  }
+}

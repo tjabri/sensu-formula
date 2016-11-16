@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "plex_local_datacheck": {
+      "command": "check-http.rb --timeout 40 --response-bytes 500 --response-code 200 -k --url http://localhost:8082/",
+      "subscribers": [
+        "plex"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 15,
+      "pager_team": "plex",
+      "occurrences": 1
+    }
+  }
+}

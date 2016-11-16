@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "janus_external_http": {
+      "command": "check-http.rb --timeout 40 --response-bytes 500 --url https://api.mediamath.com/oauth2/v1.0/healthcheck",
+      "handlers": [
+        "pager_team"
+      ],
+      "standalone": true,
+      "interval": 30,
+      "occurrences": 4,
+      "pager_team": "janus"
+    }
+  }
+}

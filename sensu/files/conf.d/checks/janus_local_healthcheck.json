@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "janus_local_healthcheck": {
+      "command": "check-http.rb --timeout 40 --response-bytes 500 -k --url https://localhost:14000/v1.0/healthcheck",
+      "subscribers": [
+        "janus"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 15,
+      "pager_team": "janus",
+      "occurrences": 2
+    }
+  }
+}
