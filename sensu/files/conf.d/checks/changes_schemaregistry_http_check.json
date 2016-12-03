@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "changes_schemaregistry_http_check": {
+      "command": "check-http.rb --timeout 10 --response-bytes 500 --response-code 200 -k --url http://localhost:8081/subjects",
+      "subscribers": [
+        "changes_schemaregistry"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "changes"
+    }
+  }
+}

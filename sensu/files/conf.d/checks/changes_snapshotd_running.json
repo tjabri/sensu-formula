@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "changes_snapshotd_running": {
+      "command": "check-procs.rb -p '^((?!consul\\-template).)*snapshotd$' -C 1",
+      "subscribers": [
+        "changes_snapshotd"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "changes"
+    }
+  }
+}

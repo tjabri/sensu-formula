@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "changes_zookeeper_running": {
+      "command": "check-procs.rb -p org.apache.zookeeper.server.quorum.QuorumPeerMain -C 1",
+      "subscribers": [
+        "changes_zookeeper"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "changes"
+    }
+  }
+}
