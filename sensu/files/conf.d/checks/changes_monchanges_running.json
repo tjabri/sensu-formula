@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "changes_monchanges_running": {
+      "command": "check-procs.rb -p '^((?!consul\\-template).)*monchanges$' -C 1",
+      "subscribers": [
+        "changes_monchanges"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "changes"
+    }
+  }
+}

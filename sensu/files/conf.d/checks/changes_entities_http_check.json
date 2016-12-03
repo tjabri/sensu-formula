@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "changes_entities_http_check": {
+      "command": "check-http.rb --timeout 10 --response-bytes 500 --response-code 200 -k --url http://localhost:8085/v1/status",
+      "subscribers": [
+        "changes_entities"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "changes"
+    }
+  }
+}

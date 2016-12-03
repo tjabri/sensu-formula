@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "changes_kafka_running": {
+      "command": "check-procs.rb -p io.confluent.support.metrics.SupportedKafka -C 1",
+      "subscribers": [
+        "changes_kafka"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "changes"
+    }
+  }
+}

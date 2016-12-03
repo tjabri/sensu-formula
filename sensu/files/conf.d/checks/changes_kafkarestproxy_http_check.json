@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "changes_kafkarestproxy_http_check": {
+      "command": "check-http.rb --timeout 10 --response-bytes 500 --response-code 200 -k --url http://localhost:8082/topics",
+      "subscribers": [
+        "changes_kafkarestproxy"
+      ],
+      "handlers": [
+        "pager_team"
+      ],
+      "interval": 30,
+      "pager_team": "changes"
+    }
+  }
+}
