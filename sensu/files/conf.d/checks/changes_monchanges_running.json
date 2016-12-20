@@ -1,14 +1,15 @@
 {
   "checks": {
     "changes_monchanges_running": {
-      "command": "check-procs.rb -p '^((?!consul\\-template).)*monchanges$' -C 1",
+      "command": "check-procs.rb -p '^/opt/monchanges/latest/monchanges' -e 30 -C 1",
       "subscribers": [
         "changes_monchanges"
       ],
       "handlers": [
         "pager_team"
       ],
-      "interval": 30,
+        "interval": 30,
+        "occurences": 3,
       "pager_team": "changes"
     }
   }

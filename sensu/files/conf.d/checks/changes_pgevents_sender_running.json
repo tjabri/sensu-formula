@@ -1,14 +1,15 @@
 {
   "checks": {
     "changes_pgevents_sender_running": {
-      "command": "check-procs.rb -p 'pgeventsd\\s+sender' -C 1",
+      "command": "check-procs.rb -p '^/opt/pgeventsd/latest/pgeventsd sender' -e 30 -C 1",
       "subscribers": [
         "changes_pgeventsdsender"
       ],
       "handlers": [
         "pager_team"
       ],
-      "interval": 30,
+        "interval": 30,
+        "occurences": 3,
       "pager_team": "changes"
     }
   }

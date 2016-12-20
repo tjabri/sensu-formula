@@ -1,14 +1,15 @@
 {
   "checks": {
     "changes_t1dbhistoryd_running": {
-      "command": "check-procs.rb -p '^((?!consul\\-template).)*t1dbhistoryd$' -C 1",
+      "command": "check-procs.rb -p '^/opt/t1dbhistoryd/latest/t1dbhistoryd' -e 30 -C 1",
       "subscribers": [
         "changes_t1dbhistoryd"
       ],
       "handlers": [
         "pager_team"
       ],
-      "interval": 30,
+        "interval": 30,
+        "occurences": 3,
       "pager_team": "changes"
     }
   }
